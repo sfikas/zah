@@ -21,12 +21,13 @@ If you find this work useful, please read and cite the [related paper]:
 ## ZAH Workflow
 
 The workflow is:
+
 1. The (normalised) image is split into zones
 2. Hypercolumn features are computed for each of the zones, using a pretrained convolutional neural network
 3. Hypercolumns are aggregated into a single feature vector per zone 
 4. Per-zone features are concatenated into a single feature vector, which therefore describes the whole word image
 
-The workflow is summarized in this figure:
+The workflow is summarized in the following figure. A word image is in the input (top), and a vector is returned at the output (bottom):
 
 ![workflow](https://github.com/sfikas/zah/blob/master/img/workflow.png "ZAH Workflow")
 
