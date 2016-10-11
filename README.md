@@ -28,7 +28,7 @@ The workflow is:
 
 The workflow is summarized in this figure:
 
-![workflow](https://github.com/sfikas/zah/raw/master/src/img/workflow.png "ZAH Workflow")
+![workflow](https://github.com/sfikas/zah/blob/master/img/workflow.png "ZAH Workflow")
 
 ## Before running the code
 
