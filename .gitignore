@@ -1,0 +1,14 @@
+matconvnet/matlab/mex/.stamp
+matconvnet/matlab/mex/*
+hypercolumns/*.mex*
+hypercolumns/batchExtract
+*~
+batchExtract_zoning__*
+batchExtract_zoning
+run_*
+*.log
+readme.txt
+optionfile.txt
+distance.txt
+length.txt
+dimensions.txt
