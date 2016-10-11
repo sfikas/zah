@@ -7,6 +7,8 @@ Motivated by recent research in machine vision, we use an appropriately pretrain
 The [convolutional network] has been trained with [matconvnet] on a large collection of word images.
 The resulting local cues are subsequently aggregated to form *word-level fixed-length descriptors*.
 
+The Euclidean distance can then be used to compare and query resulting descriptors of different word images (Query-by-Example keyword spotting).
+
 If you find this work useful, please read and cite the [related paper]:
 ```
 @inproceedings{sfikas2016zoning,
