@@ -64,8 +64,8 @@ if(numel(size(im)) == 3)
 else
     img = single(im);
 end
-[wimg, ~] = simple_gray_normalize_p(double(img), 1.5, 1);
-img = single(255*wimg);
+%[wimg, ~] = simple_gray_normalize_p(double(img), 1.5, 1);
+%img = single(255*wimg);
 rows = resizeheight; %this is related to the specifics of the pretrained CNN
 img = imresize(img, [rows NaN]); %resize to resizeheight(default:3O) rows, preserve the aspect ratio
 cols = size(img, 2); %will need this to resize (? or not?)
