@@ -35,17 +35,19 @@ The workflow is summarized in the following figure. A word image is in the input
 
 ## Before running the code
 
-Add subfolders to the path, by running the following at the MATLAB prompt:
-
-* ```cd zah/```
-* ```addpath(genpath('.'))```
-
 Then you will have to compile some of the code with matlab mex, and optionally enable GPU support: 
 
 * In ```pretrained/matconvnet/Makefile```, change the MEX variable appropriately. It should point to the path of the ```mex``` executable in your system. 
 For example this could be something similar to ```/usr/local/MATLAB/R2012a/bin/mex``` .
 * (optional) Set ENABLE_GPU in the same file in order to use the GPU for extracting ZAH features.
 * Run ```cd pretrained/matconvnet/ && make distclean && make``` on the OS shell.
+
+On the MATLAB prompt, add all repo subfolders to the path, by running the following:
+
+* ```cd zah/```
+* ```addpath(genpath('.'))```
+
+Note that it is important that you execute ```addpath``` *after* having finished compiling the necessary items with MEX.
 
 ## Running the code
 
