@@ -1,8 +1,10 @@
-function writeLineHypercolumnFeatures(fn)
-% 'lines/a01-000u-00.png'
+function writeLineHypercolumnFeatures(fn, outfn)
+% Arguments
+%   fn: input image filename
+%   outfn: output binary filename
 features = squeeze(sum(extractHypercolumns(fn, 1, 11, 0), 1));
 % //grafo plithos feature vectors
-fileID = fopen('out.bin','w');
+fileID = fopen(outfn,'w');
 % //grafo sample period
 fwrite(fileID, size(features, 1), 'uint');
 fwrite(fileID, 10000, 'uint');
