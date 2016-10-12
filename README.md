@@ -35,7 +35,7 @@ The workflow is summarized in the following figure. A word image is in the input
 
 ## Before running the code
 
-Then you will have to compile some of the code with matlab mex, and optionally enable GPU support: 
+First you will have to compile some of the code with matlab mex, and optionally enable GPU support: 
 
 * In ```pretrained/matconvnet/Makefile```, change the MEX variable appropriately. It should point to the path of the ```mex``` executable in your system. 
 For example this could be something similar to ```/usr/local/MATLAB/R2012a/bin/mex``` .
