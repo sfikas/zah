@@ -64,12 +64,7 @@ After the input file argument, the parameters are:
     * 1           Use the [bigram model](https://github.com/sfikas/zah/blob/master/pretrained/models/bigramsvtnet_layers.mat) (default choice)
     * 2           Use both
 
-* layerchoice:  Choose layers to use. You can select more than one layer. Suggested layers are 
-    * 3 (convolutional)
-    * 6 (convolutional; default choice)
-    * 11 (fully-connected)
-    * 16 (softmax)
-
+* layerchoice:  Choose layers to use. You can select more than one layer. We have run trials with one or more of layers among the following: ```3, 6, 11, 16``` (default choice is ```11```).
 * centerprior:  Prior that makes pixels near the center row more important. Input is the Gaussian precision. Zero precision corresponds to no smoothing. Default value is 6.
 * resizeheight: Resize word image to this height. This should ideally be a value close to 24, ie the window with which the related CNN was originally trained with. Default value is 30.
 
