@@ -58,13 +58,13 @@ descriptor = extractAggregatedHypercolumns_zoning('img/1/1.jpg');
 After the input file argument, the parameters are: 
 
 * modelchoice
-    * 0           Use the unigram model (```charnet_layers.mat```)
-    * 1           Use the bigram model (```bigramsvtnet_layers.mat```)      
+    * 0           Use the [unigram model](https://github.com/sfikas/zah/blob/master/pretrained/models/charnet_layers.mat)
+    * 1           Use the [bigram model](https://github.com/sfikas/zah/blob/master/pretrained/models/bigramsvtnet_layers.mat) (default choice)
     * 2           Use both
 
 * layerchoice:  Choose layers to use. You can select more than one layer. Suggested layers are 
     * 3 (convolutional)
-    * 6 (convolutional)
+    * 6 (convolutional; default choice)
     * 11 (fully-connected)
     * 16 (softmax)
 
@@ -87,9 +87,12 @@ D = batchExtract_zoning('img/1/');
 
 Note that filenames of images in the given folder should be numbered, with names starting with 
 
-#### Acknowledgements
+## Acknowledgements
 
-In the current work we make use of some of the pretrained models available [here], originally part of [this work].
+In the current work we make use of this third-party code/material:
+
+* Two pretrained CNN models from [this work]. See the related [license].
+* [matconvnet] code to perform feed-forward passes on the pretrained CNN models.
 
 
 [related paper]: <http://www.cs.uoi.gr/~sfikas/2016ICFHR-ZAH.pdf>
@@ -97,3 +100,4 @@ In the current work we make use of some of the pretrained models available [here
 [this work]: <http://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14/jaderberg14.pdf>
 [convolutional network]: <http://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14/jaderberg14.pdf>
 [matconvnet]: <http://www.vlfeat.org/matconvnet/>
+[license]: <https://github.com/sfikas/zah/blob/master/pretrained/LICENSE>
