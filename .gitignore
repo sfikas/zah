@@ -1,5 +1,5 @@
-matconvnet/matlab/mex/.stamp
-matconvnet/matlab/mex/*
+pretrained/matconvnet/matlab/mex/.stamp
+pretrained/matconvnet/matlab/mex/*
 hypercolumns/*.mex*
 hypercolumns/batchExtract
 *~
