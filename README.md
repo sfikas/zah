@@ -1,10 +1,8 @@
 # Zoning Aggregated Hypercolumns for Keyword Spotting #
 
-The provided code takes an input image as input, and returns a numerical feature vector (called 'ZAH feature') as output. This can be used for keyword spotting.
-
-Zoning Aggregated Hypercolumn features (ZAH features) are introduced with this work as pixel-level cues for document images.
+Zoning Aggregated Hypercolumn features (ZAH features) are introduced with this work.
 Motivated by recent research in machine vision, we use an appropriately pretrained convolutional network as a feature extraction tool.
-The [convolutional network] has been trained with [matconvnet] on a large collection of word images.
+The [convolutional network] are trained with [matconvnet] on a large collection of word images.
 The resulting local cues are subsequently aggregated to form *word-level fixed-length descriptors*.
 
 The Euclidean distance can then be used to compare and query resulting descriptors of different word images (Query-by-Example keyword spotting).
