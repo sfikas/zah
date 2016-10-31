@@ -80,7 +80,7 @@ Multiple images can be processed with ```batch_extract_zoning.m```. For example:
 D = batchExtract_zoning('img/1/');
 ```
 
-Note that filenames of images in the given folder should be numbered, with names starting with 
+Note that filenames of images in the given folder should be numbered. Numbering should start with zero. For example, a folder may contain ```0.jpg```,```1.jpg```,```2.jpg``` and so on. 
 
 ## Acknowledgements
 
