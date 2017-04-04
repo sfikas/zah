@@ -1,4 +1,4 @@
-function cue = batchExtract_zoning(dirname, modelchoice, layerchoice, centerprior, resizeheight, usepca)
+function [cue filenames] = batchExtract_zoning(dirname, modelchoice, layerchoice, centerprior, resizeheight, usepca)
 % batchExtract_zoning
 %
 % Script to extract ZAH features for jpg files in the 'dirname' folder.
@@ -46,18 +46,11 @@ end
 a = dir(sprintf('%s/*.jpg', dirname));
 fprintf('Found %d image files.\n', numel(a));
 cue = cell(numel(a), 1);
-largestindex = 0;
-foundnumberedFiles = 0;
+batch_fns = cell(numel(a), 1);
 cueMatrixCreated = false;
 for i = 1:numel(a)
     fn = a(i).name;
-    [~, fp2, ~] = fileparts(fn);
-    idx = str2double(fp2) + 1;
-    if(isnan(idx))
-        continue;
-    end
-    foundnumberedFiles = foundnumberedFiles + 1;
-    largestindex = max(idx, largestindex);
+    filenames{i} = fn;
     if(nargin < 2)
         fv = extractAggregatedHypercolumns_zoning(strcat(dirname, '/', fn));
     else
@@ -68,10 +61,7 @@ for i = 1:numel(a)
         cue = zeros(1, nDims);
         cueMatrixCreated = true;
     end
-    cue(idx, :) = fv;
-end
-if largestindex ~= foundnumberedFiles
-    error('error reading data! Indices of jpgs are inconsistent.');
+    cue(i, :) = fv;
 end
 if(usepca ~= 0)
     cueBig = cue;
@@ -81,12 +71,20 @@ if(usepca ~= 0)
     nDims = newDims;
     cue = normRows(cue(:, 1:nDims));
 end
-% Write to file
-%dimsFileID = fopen('dimensions.txt','w');
-%fprintf(dimsFileID, '%d\n', nDims);
-%fclose(dimsFileID);
-%dlmwrite('distance.txt', cue, 'delimiter', ' ');
-fprintf('Wrote %d descriptors of %d dimensions\n', size(cue, 1), size(cue, 2));
+if nargout == 0
+    % Write to file
+    dimsFileID = fopen('dimensions.txt','w');
+    fprintf(dimsFileID, '%d\n', nDims);
+    fclose(dimsFileID);
+    dlmwrite('distance.txt', cue, 'delimiter', ' ');
+    fid = fopen('filenames.txt','wt');    
+    for i=1:numel(filenames)
+        fprintf(fid,'%s\n',filenames{i});
+    end
+    fclose(fid);
+    fprintf('Create files: dimensions.txt, distance.txt, filenames.txt\n');
+    fprintf('Wrote %d descriptors of %d dimensions\n', size(cue, 1), size(cue, 2));
+end
 return;
 
 function res = findBestDims(x)
