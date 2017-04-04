@@ -77,10 +77,20 @@ descriptor = extractAggregatedHypercolumns_zoning('img/1/1.jpg', 0, [3 6], 3, 24
 Multiple images can be processed with ```batch_extract_zoning.m```. For example:
 
 ```
-D = batchExtract_zoning('img/1/');
+batchExtract_zoning('img/1/');
 ```
 
-Note that filenames of images in the given folder should be numbered. Numbering should start with zero. For example, a folder may contain ```0.jpg```,```1.jpg```,```2.jpg``` and so on. 
+All files with extension '.jpg' that are found in the given folder will be processed.
+
+If ```batchExtract_zoning``` is run without arguments, three files will be created, containing the result:
+```
+dimensions.txt
+distance.txt
+filenames.txt
+```
+The file ```dimensions.txt``` contains a single integer value. That is the dimensionality of the extracted per-word descriptors.
+The file ```distance.txt``` contains one descriptor on each line.
+The file ```filenames.txt``` gives the correspondence between lines in ```distance.txt``` and filenames.
 
 ## Acknowledgements
 
